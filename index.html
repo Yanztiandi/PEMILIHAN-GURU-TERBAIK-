@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voting Guru - PKBM MELATI</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,#5f2c82,#49a09d);
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 15px;
+}
+
+.header {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.header h1 {
+    margin: 0;
+    color: #5f2c82;
+}
+
+.header h2 {
+    margin: 5px 0 0;
+    color: #49a09d;
+}
+
+.section {
+    margin-top: 20px;
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
+    gap: 15px;
+}
+
+.card {
+    background: linear-gradient(145deg,#6a11cb,#2575fc);
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.name {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.vote-btn {
+    background: white;
+    color: #2575fc;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.vote-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.count {
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    opacity: 0.9;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="header">
+    <h1>🎓 VOTING GURU TERBAIK</h1>
+    <h2>PKBM MELATI</h2>
+    <p>Pilih satu guru favoritmu 🗳️</p>
+</div>
+
+<div class="section">
+    <div class="section-title">👨‍🏫 Guru Laki-laki</div>
+    <div class="grid">
+
+        <div class="card">
+            <div class="name">PAK YULIUS</div>
+            <button class="vote-btn" onclick="vote('yulius')">VOTE</button>
+            <div class="count" id="yulius">0 Vote</div>
+        </div>
+
+        <div class="card">
+            <div class="name">PAK BOBI</div>
+            <button class="vote-btn" onclick="vote('bobi')">VOTE</button>
+            <div class="count" id="bobi">0 Vote</div>
+        </div>
+
+        <div class="card">
+            <div class="name">PAK RIZKY</div>
+            <button class="vote-btn" onclick="vote('rizky')">VOTE</button>
+            <div class="count" id="rizky">0 Vote</div>
+        </div>
+
+        <div class="card">
+            <div class="name">PAK SUPRA</div>
+            <button class="vote-btn" onclick="vote('supra')">VOTE</button>
+            <div class="count" id="supra">0 Vote</div>
+        </div>
+
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">👩‍🏫 Guru Perempuan</div>
+    <div class="grid">
+
+        <div class="card">
+            <div class="name">IBU SUZANA</div>
+            <button class="vote-btn" onclick="vote('suzana')">VOTE</button>
+            <div class="count" id="suzana">0 Vote</div>
+        </div>
+
+        <div class="card">
+            <div class="name">IBU NANI</div>
+            <button class="vote-btn" onclick="vote('nani')">VOTE</button>
+            <div class="count" id="nani">0 Vote</div>
+        </div>
+
+        <div class="card">
+            <div class="name">IBU YAKAZI</div>
+            <button class="vote-btn" onclick="vote('yakazi')">VOTE</button>
+            <div class="count" id="yakazi">0 Vote</div>
+        </div>
+
+        <div class="card">
+            <div class="name">IBU RTUKI</div>
+            <button class="vote-btn" onclick="vote('rtuki')">VOTE</button>
+            <div class="count" id="rtuki">0 Vote</div>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer">
+    <p>💻 Website by Ilham</p>
+    <p>🏫 PKBM MELATI</p>
+</div>
+
+</div>
+
+<script>
+let votes = JSON.parse(localStorage.getItem("votes")) || {
+    yulius:0,bobi:0,rizky:0,supra:0,
+    suzana:0,nani:0,yakazi:0,rtuki:0
+};
+
+let hasVoted = localStorage.getItem("hasVoted");
+
+function render(){
+    for(let k in votes){
+        document.getElementById(k).innerText = votes[k] + " Vote";
+    }
+    if(hasVoted){
+        document.querySelectorAll('.vote-btn').forEach(btn=>btn.disabled=true);
+    }
+}
+
+function vote(name){
+    if(hasVoted) return alert("Anda sudah melakukan vote ✅");
+    votes[name]++;
+    localStorage.setItem("votes", JSON.stringify(votes));
+    localStorage.setItem("hasVoted","true");
+    hasVoted = true;
+    render();
+    alert("✅ Vote berhasil!");
+}
+
+render();
+</script>
+
+</body>
+</html>
