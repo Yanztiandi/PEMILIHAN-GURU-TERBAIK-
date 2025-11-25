@@ -4,31 +4,95 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hari Guru Nasional 2025 - PKBM MELATI</title>
+
 <style>
-body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);margin:0;padding:15px;}
+body{
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+    margin:0;padding:15px;
+}
 .container{max-width:1000px;margin:0 auto;}
-.header{background:white;border-radius:15px;padding:25px;text-align:center;margin-bottom:20px;box-shadow:0 5px 15px rgba(0,0,0,0.2);}
+.header{
+    background:white;border-radius:15px;padding:25px;text-align:center;
+    margin-bottom:20px;box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
 .header h1{color:#667eea;font-size:1.8em;margin-bottom:10px;}
 .header h2{color:#764ba2;font-size:1.4em;margin-bottom:15px;}
-.greeting{background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%);color:white;padding:20px;border-radius:10px;font-size:1em;line-height:1.5;}
-.section-title{background:white;color:#667eea;padding:15px;border-radius:10px;text-align:center;font-size:1.5em;margin:20px 0 15px;font-weight:bold;box-shadow:0 3px 10px rgba(0,0,0,0.1);}
-.voting-section{background:white;border-radius:15px;padding:20px;margin-bottom:20px;box-shadow:0 5px 15px rgba(0,0,0,0.2);}
-.category-title{text-align:center;margin-bottom:15px;font-size:1.5em;font-weight:bold;}
+
+.greeting{
+    background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%);
+    color:white;padding:20px;border-radius:10px;font-size:1em;line-height:1.5;
+}
+
+.section-title{
+    background:white;color:#667eea;padding:15px;border-radius:10px;
+    text-align:center;font-size:1.5em;margin:20px 0 15px;
+    font-weight:bold;box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.voting-section{
+    background:white;border-radius:15px;padding:20px;margin-bottom:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.category-title{
+    text-align:center;margin-bottom:15px;font-size:1.5em;font-weight:bold;
+}
+
 .male-section{border-top:4px solid #4299e1;}
 .female-section{border-top:4px solid #f093fb;}
 .male-section .category-title{color:#4299e1;}
 .female-section .category-title{color:#f093fb;}
-.teachers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-top:15px;}
-.teacher-card{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border-radius:12px;padding:20px;text-align:center;cursor:pointer;transition:transform 0.3s;}
-.teacher-card:hover{transform:scale(1.05);box-shadow:0 8px 20px rgba(0,0,0,0.3);}
-.teacher-name{color:white;font-size:1.2em;font-weight:bold;margin-bottom:12px;}
-.vote-btn{background:white;color:#667eea;border:none;padding:10px 25px;border-radius:20px;font-size:1em;font-weight:bold;cursor:pointer;width:100%;}
-.footer{background:white;border-radius:12px;padding:20px;text-align:center;margin-top:20px;box-shadow:0 3px 10px rgba(0,0,0,0.1);}
+
+.teachers-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+    margin-top:15px;
+}
+
+/* FIX FOTO SERAGAM */
+.teacher-card img{
+    width:100%;
+    height:230px;           /* Seragam */
+    object-fit:cover;       /* Tidak gepeng / ketarik */
+    border-radius:12px;
+}
+
+.teacher-card{
+    background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+    border-radius:12px;padding:20px;text-align:center;
+    cursor:pointer;transition:transform 0.3s;
+}
+.teacher-card:hover{
+    transform:scale(1.05);
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+.teacher-name{
+    color:white;font-size:1.2em;font-weight:bold;margin:12px 0;
+}
+
+.vote-btn{
+    background:white;color:#667eea;border:none;
+    padding:10px 25px;border-radius:20px;font-size:1em;
+    font-weight:bold;cursor:pointer;width:100%;
+}
+
+.footer{
+    background:white;border-radius:12px;padding:20px;text-align:center;
+    margin-top:20px;box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
 .footer p{color:#667eea;font-size:1em;margin:8px 0;}
-img{border-radius:12px;}
-@media(max-width:600px){.header h1{font-size:1.4em;}.header h2{font-size:1.1em;}.teachers-grid{grid-template-columns:1fr 1fr;}}
+
+@media(max-width:600px){
+    .header h1{font-size:1.4em;}
+    .header h2{font-size:1.1em;}
+    .teachers-grid{grid-template-columns:1fr 1fr;}
+}
 </style>
 </head>
+
 <body>
 <div class="container">
     <div class="header">
@@ -47,16 +111,19 @@ img{border-radius:12px;}
     <div class="voting-section male-section">
         <div class="category-title">👨‍🏫 KATEGORI GURU LAKI-LAKI</div>
         <div class="teachers-grid">
+
             <div class="teacher-card" onclick="vote('bobi','Bobi Hartanto, S.Pd')">
-                <img src="https://files.catbox.moe/xzodgz.jpg" alt="Bobi Hartanto, S.Pd">
+                <img src="https://files.catbox.moe/xzodgz.jpg">
                 <div class="teacher-name">👨‍🏫 Bobi Hartanto, S.Pd</div>
                 <button class="vote-btn">VOTE</button>
             </div>
+
             <div class="teacher-card" onclick="vote('supra','Suprayetno, S.Pd')">
-                <img src="https://files.catbox.moe/n32lar.jpg" alt="Suprayetno, S.Pd">
+                <img src="https://files.catbox.moe/n32lar.jpg">
                 <div class="teacher-name">👨‍🏫 Suprayetno, S.Pd</div>
                 <button class="vote-btn">VOTE</button>
             </div>
+
         </div>
     </div>
 
@@ -64,26 +131,31 @@ img{border-radius:12px;}
     <div class="voting-section female-section">
         <div class="category-title">👩‍🏫 KATEGORI GURU PEREMPUAN</div>
         <div class="teachers-grid">
+
             <div class="teacher-card" onclick="vote('suzana','Dra. Suzana')">
-                <img src="https://files.catbox.moe/s6kg42.jpg" alt="Dra. Suzana">
+                <img src="https://files.catbox.moe/s6kg42.jpg">
                 <div class="teacher-name">👩‍🏫 Dra. Suzana</div>
                 <button class="vote-btn">VOTE</button>
             </div>
+
             <div class="teacher-card" onclick="vote('maznah','Dra. Maznah')">
-                <img src="https://files.catbox.moe/c2vey4.jpg" alt="Dra. Maznah">
+                <img src="https://files.catbox.moe/c2vey4.jpg">
                 <div class="teacher-name">👩‍🏫 Dra. Maznah</div>
                 <button class="vote-btn">VOTE</button>
             </div>
+
             <div class="teacher-card" onclick="vote('fajarida','Dra. Fajarida, LD')">
-                <img src="https://files.catbox.moe/0h9moi.jpg" alt="Dra. Fajarida, LD">
+                <img src="https://files.catbox.moe/0h9moi.jpg">
                 <div class="teacher-name">👩‍🏫 Dra. Fajarida, LD</div>
                 <button class="vote-btn">VOTE</button>
             </div>
+
             <div class="teacher-card" onclick="vote('innani','Innani Sumartini, S.Pd')">
-                <img src="https://files.catbox.moe/qn41a5.jpg" alt="Innani Sumartini, S.Pd">
+                <img src="https://files.catbox.moe/qn41a5.jpg">
                 <div class="teacher-name">👩‍🏫 Innani Sumartini, S.Pd</div>
                 <button class="vote-btn">VOTE</button>
             </div>
+
         </div>
     </div>
 
@@ -98,8 +170,8 @@ img{border-radius:12px;}
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 <script>
-// Firebase config (ganti dengan project kamu)
 const firebaseConfig = {
   apiKey: "API_KEY_BARU",
   authDomain: "PROJECT_ID_BARU.firebaseapp.com",
@@ -112,7 +184,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-// Telegram info
+// Telegram
 const TELEGRAM_BOT_TOKEN = "8075129453:AAHb75QqznKgmLTtDgThmP6pJveTphSRmKo";
 const TELEGRAM_CHAT_ID = "8116752882";
 
@@ -120,21 +192,21 @@ function sendTelegram(message){
     axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,{
         chat_id: TELEGRAM_CHAT_ID,
         text: message
-    }).catch(err=>console.error("Telegram error:",err));
+    });
 }
 
 function vote(guruId,guruName){
     const docRef=db.collection('votes').doc(guruId);
     db.runTransaction(async transaction=>{
         const doc=await transaction.get(docRef);
-        let newCount = 1;
-        if(doc.exists) newCount = doc.data().count + 1;
+        let newCount = doc.exists ? doc.data().count + 1 : 1;
         transaction.set(docRef,{name:guruName,count:newCount});
         sendTelegram(`🎉 Vote baru untuk ${guruName}: ${newCount} vote!`);
     }).then(()=>{
         alert('✨ Terima kasih! Vote Anda untuk '+guruName+' telah tercatat! ✨');
-    }).catch(err=>{console.error("Vote gagal:",err);});
+    });
 }
 </script>
+
 </body>
 </html>
